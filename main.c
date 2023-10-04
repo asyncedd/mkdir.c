@@ -42,12 +42,6 @@ int main(int argc, char *argv[]) {
 
   argp_parse(&argp, argc, argv, 0, 0, &arguments);
 
-  if (arguments.num_dirs < 1) {
-    fprintf(stderr, "Error: Please provide at least one directory name.\n");
-    free(arguments.dir_names);
-    return 1;
-  }
-
   for (int i = 0; i < arguments.num_dirs; i++) {
     if (mkdir(arguments.dir_names[i], 0777) == 0) {
       printf("Directory '%s' created successfully.\n", arguments.dir_names[i]);
